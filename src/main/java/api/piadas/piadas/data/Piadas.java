@@ -14,9 +14,14 @@ import java.util.List;
 public class Piadas {
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    public static List<PiadaDAO> loadPiadas() throws IOException {
-        TypeReference<List<PiadaDAO>> typeReference = new TypeReference<List<PiadaDAO>>() {};
-        InputStream inputStream = new FileInputStream(new File("src/main/resources/jokes.json")){};
-        return mapper.readValue(inputStream, typeReference);
+    public static List<PiadaDAO> loadPiadas(){
+        try{
+            TypeReference<List<PiadaDAO>> typeReference = new TypeReference<List<PiadaDAO>>() {};
+            InputStream inputStream = new FileInputStream(new File("src/main/resources/jokes.json")){};
+            return mapper.readValue(inputStream, typeReference);
+        } catch (IOException e){
+            System.out.println("Error:: "+ e.getMessage());
+        }
+        return null;
     }
 }
