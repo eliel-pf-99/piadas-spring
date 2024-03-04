@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -14,8 +15,8 @@ import java.util.List;
 public class PiadasController {
     private final PiadasService service;
 
-    public PiadasController(PiadasService service) {
-        this.service = service;
+    public PiadasController(PiadasService service) throws IOException {
+        this.service = new PiadasService();
     }
 
     @GetMapping("/random")
