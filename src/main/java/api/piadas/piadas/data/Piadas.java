@@ -16,7 +16,7 @@ public class Piadas {
 
     public static List<PiadaDAO> loadPiadas() throws IOException {
         TypeReference<List<PiadaDAO>> typeReference = new TypeReference<List<PiadaDAO>>() {};
-        InputStream inputStream = new FileInputStream(new File("C:\\Users\\user\\Downloads\\piadas\\piadas\\src\\main\\resources\\jokes.json")){};
+        InputStream inputStream = new FileInputStream(new File("src/main/resources/jokes.json")){};
         return mapper.readValue(inputStream, typeReference);
     }
 }
